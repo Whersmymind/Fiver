@@ -1,2 +1,28 @@
-<h1>Courses#index</h1>
-<p>Find me in app/views/courses/index.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Fiver brings <strong>courses</strong> for <strong>Everyone</strong>!</h1>
+    <p>Change your life and learn a new skill.</p>
+    <a class="btn btn-flat" href="#">Sign up</a>
+  </div>
+</div>
+
+
+<h1>Courses</h1>
+
+  <div>
+    <% @courses.each do |course| %>
+      <%= link_to course_path(course), :action => 'go' do %>
+        <div class="container-cards">
+            <%# <%= cl_image_tag course.product.photo.key, class: "img-card-product", alt: "Product Pic" %>
+            <div class="card-product">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <h3><%="#{course.title}" %></h3>
+                <p><%= "#{course.description}" %></p>
+                <p><%= "#{course.price}" %></p>
+              </div>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
